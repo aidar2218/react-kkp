@@ -1,15 +1,5 @@
 .App {
-    margin: 50px;
+    margin: 20px auto;
+    width: 600px;
 }
 
-.onOffComponent {
-    margin-top: 30px;
-}
-
-.offButton {
-    background-color: red;
-}
-
-.onButton {
-    background-color: green;
-}
