@@ -4,7 +4,7 @@ type UncontrolledRatingPropsType = {
     // value: 0 | 1 | 2 | 3 | 4 | 5
 }
 
-type RatingStarType = 0 | 1 | 2 | 3 | 4 | 5
+export type RatingStarType = 0 | 1 | 2 | 3 | 4 | 5
 
 export function UncontrolledRating(props: UncontrolledRatingPropsType) {
     console.log("UncontrolledRating rendering");

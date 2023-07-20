@@ -3,13 +3,15 @@ import React from "react";
 type AccordionPropsType = {
     title: string
     collapsed: boolean
+    callback: () => void
 }
 
 export function Accordion(props: AccordionPropsType) {
     console.log("UncontrolledAccordion rendering");
     return (
         <div>
-            <AccordionTitle title={props.title}/>
+            <AccordionTitle cb={props.callback}
+                            title={props.title}/>
             { !props.collapsed && <AccordionBody/>}
         </div>
     )
@@ -17,12 +19,13 @@ export function Accordion(props: AccordionPropsType) {
 
 type AccordionTitlePropsType = {
     title: string
+    cb: () => void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     console.log("AccordionTitle rendering");
     return (
-        <h3>---{props.title}---</h3>
+        <h3 onClick={props.cb}>---{props.title}---</h3>
     )
 }
 
