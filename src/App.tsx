@@ -16,7 +16,6 @@ function App() {
     return (
         <div className="App">
 
-
             <Rating value={ratingValue} callback={setRatingValue} />
             <Accordion title={"MENU"} collapsed={accordionCollapsed} callback={() => setAccordionCollapsed(!accordionCollapsed)} />
             <OnOff state={on} setState={setOn}/>
