@@ -1,9 +1,14 @@
 import React from "react";
+import { ItemType } from "./Accordion.stories";
+
+
 
 type AccordionPropsType = {
     title: string
     collapsed: boolean
     callback: () => void
+    items: ItemType[]
+    onClick: (id: number) => void
 }
 
 export function Accordion(props: AccordionPropsType) {
@@ -12,7 +17,7 @@ export function Accordion(props: AccordionPropsType) {
         <div>
             <AccordionTitle cb={props.callback}
                             title={props.title}/>
-            { !props.collapsed && <AccordionBody/>}
+            { !props.collapsed && <AccordionBody items={props.items} onClick={props.onClick}/>}
         </div>
     )
 }
@@ -29,13 +34,19 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     )
 }
 
-function AccordionBody() {
+type AccordionBodyPropsType = {
+    items: ItemType[]
+    onClick: (id: number) => void
+}
+
+function AccordionBody(props: AccordionBodyPropsType) {
     console.log("AccordionBody rendering");
+    const happyHandler = (id: string) => {
+        alert("")
+    }
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {props.items.map((item, index) => <li key={item.id} onClick={() => props.onClick(item.id)}>{item.name}</li>)}
         </ul>
     )
 }
